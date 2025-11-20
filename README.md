@@ -22,17 +22,17 @@ Iniciei fazendo um documento do word, para instalação dos pacotes do OpenCV, v
 passar os scripts do Ubuntu para ele.
 
 ### TaskList
-   [V] Instalar em uma VM
-   [ ] Instalar no Notebook com RTX-2070
-   [ ] Como fixar o IP e/ou usar o roteador
-   [ ] Mudar o nome do Host
-   [ ] Fazer scripts para ajustar o Firewall de aplicações e testar
-   [ ] Fazer scripts para ajustar o Firewall de rede e testar
-   [ ] Fazer o porte dos Scripts do Ubuntu (apt) para o Fedora SilverBlue 43
-   [ ] Testar 
-   [ ] Fazer o porte dos Scripts do Ubuntu (snap para flatpack) para o Fedora SilverBlue 43
-   [ ] Testar 
-   [ ] Fazer e atualizar os Scripts para instalar as IDEs da JetBrains e VSCode
+  - [V] Instalar em uma VM
+  - [ ] Instalar no Notebook com RTX-2070
+  - [ ] Como fixar o IP e/ou usar o roteador
+  - [ ] Mudar o nome do Host
+  - [ ] Fazer scripts para ajustar o Firewall de aplicações e testar
+  - [ ] Fazer scripts para ajustar o Firewall de rede e testar
+  - [ ] Fazer o porte dos Scripts do Ubuntu (apt) para o Fedora SilverBlue 43
+  - [ ] Testar 
+  - [ ] Fazer o porte dos Scripts do Ubuntu (snap para flatpack) para o Fedora SilverBlue 43
+  - [ ] Testar 
+  - [ ] Fazer e atualizar os Scripts para instalar as IDEs da JetBrains e VSCode
 
 ## Referências:
 1) https://fedoraproject.org
