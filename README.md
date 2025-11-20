@@ -22,7 +22,7 @@ Iniciei fazendo um documento do word, para instalação dos pacotes do OpenCV, v
 passar os scripts do Ubuntu para ele.
 
 ### TaskList
-  - [V] Instalar em uma VM
+  - [X] Instalar em uma VM
   - [ ] Instalar no Notebook com RTX-2070
   - [ ] Como fixar o IP e/ou usar o roteador
   - [ ] Mudar o nome do Host
