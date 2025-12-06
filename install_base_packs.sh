@@ -1,4 +1,4 @@
-# Vim e alguns plugins
+# Vim e alguns plugins e sua versão Gráfica GTK
 sudo rpm-ostree -y install  \
 vim-gtk-syntax vim-gv vim-default-editor vim-enhanced \
 awesome-vim-colorschemes perl-Text-VimColor vim-go \
@@ -22,28 +22,39 @@ sudo rpm-ostree -y install  nmap meld wtype swaymsg wlrctl
 # ImageMagick : Apps para manipulação de imagens 
 # usando linha de comando
 # https://imagemagick.org
-sudo rpm-ostree -y install ImageMagick ImageMagick-c++ ImageMagick-c++-devel vips-magick
+sudo rpm-ostree -y install ImageMagick ImageMagick-c++ \
+ImageMagick-c++-devel vips-magick ImageMagick-doc \
+ImageMagick-devel
 
 # App que converte webp em jpg
-# Exemplo : dwebp apache-Lucene.webp -o apache-Lucene.png
-sudo apt install -y dwebp 
+# Exemplo : 
+sudo rpm-ostree -y install libwebp libwebp-devel libwebp-java libwebp-tools 
 
-# Usando o ssh
-sudo apt install -y openssh-client openssh-server
+# Este programa monitora mudança de sites e te envia o resultado por e-mail
+# Via linha de comando ou Script.
+# https://packages.fedoraproject.org/pkgs/urlwatch/urlwatch/
 
-# Para que possa configurar o AppArMor.
-sudo apt install -y apparmor-utils
+# ferramentas básicas de rede 
+
+# Ferramentas de SSh
+sudo rpm-ostree -y install urlwatch net-tools openssh-client openssh-server
 
 # Para converte grafos em imagens (fica muito bom!).
 # https://graphviz.org/download/
-sudo apt install -y graphviz
+sudo rpm-ostree -y install graphviz ghc-graphviz 
 
 # Suporte para o Mouse Logtech
-sudo apt install -y solaar logiops
+sudo rpm-ostree -y install solaar logiops
 
-# Editor vim modo gráfico
-sudo apt install -y vim-gtk3
+# Pacotes principais do TeX Live
+sudo rpm-ostree -y install texlive-scheme-full
 
-# Aplicativos para manipulaçãp de arquivo Latex (inclusive o latex make)
-sudo apt install -y texlive texlive-latex-base texlive-science texlive-publishers texlive-pictures-doc texlive-latex-extra texlive-lang-portuguese texlive-font-utils texlive-binaries 
-sudo apt install -y texlive-bibtex-extra texlive-base tth tpp tgif texworks texmaker texmaker-data sent latexmk
+# IDEs e ferramentas auxiliares
+sudo rpm-ostree -y install texmaker texworks latexmk
+
+# Outros utilitários aproximados dos que você mencionou
+sudo rpm-ostree -y install tgif tpp
+
+
+
+
