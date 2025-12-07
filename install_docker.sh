@@ -26,7 +26,11 @@ case "$1" in
         sudo systemctl reboot
         ;;
     2)
+        echo "📝 Fase 2:  Removendo pacotes do sistema"
+
          sudo rpm-ostree -y remove docker
+         sudo rpm-ostree -y remove docker-ce
+         sudo rpm-ostree -y remove docker-ce-cli
          sudo rpm-ostree -y remove docker-client 
          sudo rpm-ostree -y remove docker-client-latest 
          sudo rpm-ostree -y remove docker-common 
@@ -36,10 +40,8 @@ case "$1" in
          sudo rpm-ostree -y remove docker-selinux 
          sudo rpm-ostree -y remove docker-engine-selinux 
          sudo rpm-ostree -y remove docker-engine
-
-        sudo groupadd docker
-        sudo usermod -aG docker $USER
-    
+         sudo rpm-ostree -y remove containerd.io 
+        
         echo "📝 Fase 2: Criando o repositório docker-ce.repo..."
 
         sudo mkdir -p /etc/yum.repos.d
@@ -57,6 +59,8 @@ case "$1" in
         sudo systemctl enable --now docker
         echo "✅ Docker iniciado com sucesso."
 
+       sudo bash -c 'getent group | grep "docker:" >> /etc/group'
+       sudo usermod -aG docker $USER 
 
         ;;
     *)
