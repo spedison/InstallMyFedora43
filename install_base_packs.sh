@@ -4,8 +4,7 @@ vim-gtk-syntax vim-gv vim-default-editor vim-enhanced \
 awesome-vim-colorschemes perl-Text-VimColor vim-go \
 vim-latex vim-X11 vim-minimal
 
-# Mapear a rede com serviços e IPs
-# Exemplo : sudo nmap -sS 192.xx.xx.0/24
+
 
 # App para comparação de diretórios e arquivos 
 # em uma interface gráfica amigável.
@@ -16,7 +15,7 @@ vim-latex vim-X11 vim-minimal
 # Aplicativo para listar mover janelas. 
 # https://linuxvox.com/blog/what-are-the-alternatives-to-wmctrl/#comparison-table-choosing-the-right-tool
 # 
-sudo rpm-ostree -y install  nmap meld wtype swaymsg wlrctl
+sudo rpm-ostree -y install  meld wtype swaymsg wlrctl
 
 
 # ImageMagick : Apps para manipulação de imagens 
@@ -37,7 +36,12 @@ sudo rpm-ostree -y install libwebp libwebp-devel libwebp-java libwebp-tools
 # ferramentas básicas de rede 
 
 # Ferramentas de SSh
-sudo rpm-ostree -y install urlwatch net-tools openssh-client openssh-server
+
+# Mapear a rede com serviços e IPs
+# Exemplo : sudo nmap -sS 192.xx.xx.0/24
+sudo rpm-ostree -y install urlwatch net-tools \
+openssh-client openssh-server \
+nmap nmap-ncat 
 
 # Para converte grafos em imagens (fica muito bom!).
 # https://graphviz.org/download/
