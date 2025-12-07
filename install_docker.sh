@@ -26,17 +26,21 @@ case "$1" in
         sudo systemctl reboot
         ;;
     2)
+         sudo rpm-ostree -y remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-selinux \
+                  docker-engine-selinux \
+                  docker-engine
+    
         echo "📝 Fase 2: Criando o repositório docker-ce.repo..."
 
         sudo mkdir -p /etc/yum.repos.d
-        sudo cat <<EOF > /etc/yum.repos.d/docker-ce.repo
-[docker-ce-stable]
-name=Docker CE Stable - \$basearch
-baseurl=https://download.docker.com/linux/fedora/\$releasever/\$basearch/stable
-enabled=1
-gpgcheck=1
-gpgkey=https://download.docker.com/linux/fedora/gpg
-EOF
+        sudo bash -c " curl 'https://download.docker.com/linux/fedora/docker-ce.repo' > /etc/yum.repos.d/docker-ce.repo"
 
         echo "📦 Instalando Docker CE, CLI e containerd.io..."
         sudo rpm-ostree -y install docker-ce docker-ce-cli containerd.io
