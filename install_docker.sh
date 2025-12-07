@@ -26,16 +26,19 @@ case "$1" in
         sudo systemctl reboot
         ;;
     2)
-         sudo rpm-ostree -y remove docker \
-                  docker-client \
-                  docker-client-latest \
-                  docker-common \
-                  docker-latest \
-                  docker-latest-logrotate \
-                  docker-logrotate \
-                  docker-selinux \
-                  docker-engine-selinux \
-                  docker-engine
+         sudo rpm-ostree -y remove docker
+         sudo rpm-ostree -y remove docker-client 
+         sudo rpm-ostree -y remove docker-client-latest 
+         sudo rpm-ostree -y remove docker-common 
+         sudo rpm-ostree -y remove docker-latest 
+         sudo rpm-ostree -y remove docker-latest-logrotate 
+         sudo rpm-ostree -y remove docker-logrotate 
+         sudo rpm-ostree -y remove docker-selinux 
+         sudo rpm-ostree -y remove docker-engine-selinux 
+         sudo rpm-ostree -y remove docker-engine
+
+        sudo groupadd docker
+        sudo usermod -aG docker $USER
     
         echo "📝 Fase 2: Criando o repositório docker-ce.repo..."
 
@@ -54,11 +57,7 @@ case "$1" in
         sudo systemctl enable --now docker
         echo "✅ Docker iniciado com sucesso."
 
-        echo "🔐 Adicionando o usuário atual ao grupo docker..."
-        sudo usermod -aG docker "$USER"
 
-        echo "ℹ️ Saia e entre novamente na sessão ou use 'newgrp docker' para ativar o grupo."
-        newgrp docker
         ;;
     *)
         show_help
