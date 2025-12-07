@@ -102,6 +102,7 @@ case "$1" in
         rpm_ostree_install_safe "docker-ce"
         rpm_ostree_install_safe "docker-ce-cli"
         rpm_ostree_install_safe "containerd.io"
+        rpm_ostree_install_safe "docker-compose-plugin"
         
         echo "✅ Fase 2 concluída. Reiniciando o sistema..."
         sleep 2
