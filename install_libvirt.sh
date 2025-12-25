@@ -1,5 +1,6 @@
 sudo rpm-ostree -y install \
   libvirt \
+  virtiofsd \
   virt-manager \
   virt-viewer \
   virt-top \
@@ -18,13 +19,33 @@ sudo rpm-ostree -y install \
   dnsmasq \
   virt-what \
   virt-sandbox \
-  libvirt-client
+  libvirt-client \
+  virt-v2v \
+  virt-v2v-bash-completion \
+  virtiofsd \
+  
 
-sudo usermod -aG libvirt $USER
+#sudo usermod -aG libvirt $USER
 
-newgrp libvirt
+#newgrp libvirt
 
 sudo systemctl enable --now libvirtd
+
+ # Verifica se o grupo docker existe em /etc/group
+  if ! grep -q "^libvirt:" /etc/group 2>/dev/null; then
+      echo "  ℹ️  Grupo 'libvirt' não está em /etc/group, copiando de /usr/lib/group..."
+      
+      # Extrai a linha do grupo docker de /usr/lib/group
+      if sudo bash -c 'grep "^libvirt:" /usr/lib/group >> /etc/group 2>/dev/null'; then
+          echo "  ✅ Grupo 'libvirt' copiado com sucesso mantendo o GID original"
+      #else
+      #    echo "  ⚠️  Não encontrou grupo docker em /usr/lib/group, criando novo..."
+      #    sudo groupadd docker || echo "  ⚠️  Erro ao criar grupo"
+      fi
+  else
+      echo "  ℹ️  Grupo 'libvirt' já existe em /etc/group"
+  fi
+
 
 if ! grep -Fxq "# Aloca 256 páginas de 2MB (HugePages) no boot" /etc/tmpfiles.d/hugepages.conf 2>/dev/null; then
   sudo bash -c 'echo "# Aloca 256 páginas de 2MB (HugePages) no boot" >> /etc/tmpfiles.d/hugepages.conf'  
