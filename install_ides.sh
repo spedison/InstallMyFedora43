@@ -1,7 +1,7 @@
-# Aplicativos mais básicos
-sudo apt install -y mc git curl wget htop btop vim terminator gnuplot octave net-tools 
-sudo apt install -y binutils make cmake gcc g++ g++-12 g++-11 libstdc++5
-sudo apt install -y zip unzip gzip libreoffice tree silversearcher-ag
+# # Aplicativos mais básicos
+# sudo apt install -y mc git curl wget htop btop vim terminator gnuplot octave net-tools 
+# sudo apt install -y binutils make cmake gcc g++ g++-12 g++-11 libstdc++5
+# sudo apt install -y zip unzip gzip libreoffice tree silversearcher-ag
 
 
 # IDEs da JetBrains
@@ -42,23 +42,25 @@ rm ~/ideaIU-2024.1.4.tar
 
 #PyCharm
 cd ~
-wget https://download-cdn.jetbrains.com/python/pycharm-professional-2024.1.4.tar.gz
-gunzip pycharm-professional-2024.1.4.tar.gz
+FILE_P=pycharm-2025.3.1
+wget https://download-cdn.jetbrains.com/python/$FILE_P.tar.gz
+gunzip $FILE_P.tar.gz
 cd ~/.local/share
-tar -xvf ~/pycharm-professional-2024.1.4.tar
-ln -s ~/.local/share/pycharm-2024.1.4 ~/.local/share/pycharm
+tar -xvf ~/$FILE_P.tar
+ln -s ~/.local/share/$FILE_P ~/.local/share/pycharm
 echo 'export PATH=$PATH:/home/spedison/.local/share/pycharm/bin' >> ~/.bashrc
-rm ~/pycharm-professional-2024.1.4.tar
+rm ~/$FILE_P.tar
 
 #RustRover
 cd ~
-wget https://download-cdn.jetbrains.com/rustrover/RustRover-2024.2.4.tar.gz
-gunzip RustRover-2024.2.4.tar.gz
+FILE_P=RustRover-2025.3.1
+wget https://download-cdn.jetbrains.com/rustrover/$FILE_P.tar.gz
+gunzip $FILE_P.tar.gz
 cd ~/.local/share
-tar -xvf ~/RustRover-2024.2.4.tar
-ln -s ~/.local/share/RustRover-2024.2.4 ~/.local/share/rustrover
+tar -xvf ~/$FILE_P.tar
+ln -s ~/.local/share/$FILE_P ~/.local/share/rustrover
 echo 'export PATH=$PATH:/home/spedison/.local/share/rustrover/bin' >> ~/.bashrc
-rm ~/RustRover-2024.2.4.tar
+rm ~/$FILE_P.tar
 
 
 #Anaconda
@@ -80,21 +82,6 @@ bash "$HOME/Anaconda3-$INSTALLER_VERSION-Linux-x86_64.sh"
 # Depois de instalar acertar a versão da glibc
 conda install -c conda-forge gcc=12.1.0
 
-#SDKMan
-curl -s "https://get.sdkman.io" | bash
-
-source ~/.bashrc
-sdk install java 21.0.2-graalce
-## Responder No para as questões abaixo... Por falta da automação na linha de comando
-sdk install java 17.0.9-graalce
-sdk install java 21.0.2-open
-# Esse era um teste por conta das mensagens. Melhorar da próxima vez.
-# while true; do echo no; sleep 0.1s; done  | sdk install java 21.0.2-open
-sdk install java 8.0.412-amzn
-echo "" >> $HOME/.bashrc
-echo "## Caminhos para o Java" >> $HOME/.bashrc
-echo 'export JAVA_HOME=$HOME/.sdkman/candidates/java/current' >> $HOME/.bashrc
-echo 'export PATH=$PATH:$JAVA_HOME/bin' >> $HOME/.bashrc
 
 
 
