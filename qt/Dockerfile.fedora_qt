@@ -1,0 +1,31 @@
+FROM registry.fedoraproject.org/fedora-toolbox:43
+
+LABEL maintainer="Edison Araujo <spedison@gmail.com>"
+LABEL description="Ambiente de desenvolvimento Qt Usando Fedora"
+LABEL version="1.0"
+
+# Instando as libs do Qt 5 e 6
+RUN  dnf -y update && \
+  dnf install -y \
+   gcc gcc-c++ \ 
+   clang clang-tools-extra \
+   make \
+   cmake \
+   ninja \
+   gdb \
+   lldb \
+   pkgconf-pkg-config \
+   git rsync file && \
+  dnf install -y \
+   qt5-qtbase-devel \ 
+   qt5-qttools-devel \
+   qt5-qtdeclarative-devel \
+   qt5-qtsvg-devel \
+   qt5-qtwebengine-devel && \
+  dnf install -y \
+   qt6-qtbase-devel \
+   qt6-qttools-devel \
+   qt6-qtdeclarative-devel \
+   qt6-qtsvg-devel \
+   qt6-qtwebengine-devel && \
+  echo 'X_EDISON_IMAGE="fedora-qt-dev-1.0"' >> /etc/os-release 
