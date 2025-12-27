@@ -1,0 +1,23 @@
+FROM docker.io/library/ubuntu:25.10
+
+LABEL maintainer="Edison Araujo <spedison@gmail.com>"
+LABEL description="Ambiente de desenvolvimento OpenCV"
+LABEL version="1.0"
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Instando as libs do OpenCV
+RUN  apt update && \
+     apt search opencv 2>/dev/null | grep -E "(^libopencv|gstre)" | cut -f 1 -d "/" | xargs apt -y install && \
+     apt -y install v4l-utils v4l-conf w3cam qv4l2 libwebcam0-dev \
+                    libwebcam0 libv4l-0t64 libavdevice-dev \
+                    golang-github-korandiz-v4l-dev \
+                    dv4l dov4l yavta zbar-tools ffmpeg \
+                    gstreamer1.0-libav libavcodec-dev \
+                    libavcodec-extra libavifile-0.7c2 \
+                    libavifile-0.7-common libavifile-0.7-bin \
+                    libavutil59 libffmpeg-nvenc-dev \
+                    libffmpegthumbnailer-dev libffms2-5 \
+                    libffms2-dev libheif-plugin-ffmpegdec mystiq winff \
+                    clang gcc g++ make cmake python3 \
+                    git wget curl vim
