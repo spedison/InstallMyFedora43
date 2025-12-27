@@ -1,4 +1,4 @@
-FROM docker.io/library/fedora:43
+FROM registry.fedoraproject.org/fedora-toolbox:43
 
 LABEL maintainer="Edison Araujo <spedison@gmail.com>"
 LABEL description="Ambiente de desenvolvimento OpenCV Usando Fedora"
@@ -18,7 +18,5 @@ RUN  dnf -y update && \
                     ffmpeg-free-devel ffmpegthumbnailer-devel \
                     ffmpegthumbnailer-libs vlc-plugin-ffmpeg \
                     ffmpeg-free gstreamer1-plugin-libav \
-                    libavutil-free libavutil-free-devel
-
-
-                    
+                    libavutil-free libavutil-free-devel && \
+                    echo 'X_EDISON_IMAGE="fedora-opencv-dev-1.0"' >> /etc/os-release 
