@@ -1,7 +1,7 @@
-FROM docker.io/library/ubuntu:25.10
+FROM quay.io/toolbx/ubuntu-toolbox:25.04
 
 LABEL maintainer="Edison Araujo <spedison@gmail.com>"
-LABEL description="Ambiente de desenvolvimento OpenCV"
+LABEL description="Ambiente de desenvolvimento OpenCV no Ubuntu"
 LABEL version="1.0"
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -16,8 +16,9 @@ RUN  apt update && \
                     gstreamer1.0-libav libavcodec-dev \
                     libavcodec-extra libavifile-0.7c2 \
                     libavifile-0.7-common libavifile-0.7-bin \
-                    libavutil59 libffmpeg-nvenc-dev \
+                    libffmpeg-nvenc-dev \
                     libffmpegthumbnailer-dev libffms2-5 \
                     libffms2-dev libheif-plugin-ffmpegdec mystiq winff \
                     clang gcc g++ make cmake python3 \
-                    git wget curl vim
+                    git wget curl vim && \
+                    echo 'X_EDISON_IMAGE="ubuntu-opencv-dev-1.0"' >> /etc/os-release 
