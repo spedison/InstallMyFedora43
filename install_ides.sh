@@ -34,10 +34,10 @@ wget https://download-cdn.jetbrains.com/idea/$FILE_P.tar.gz
 gunzip $FILE_P.tar.gz
 cd ~/.local/share
 tar -xvf ~/$FILE_P.tar
-ln -s ~/.local/share/idea-IU-241.18034.62 ~/.local/share/intellij
+ln -s ~/.local/share/$FILE_P ~/.local/share/intellij
 ln -s ~/.local/share/intellij/bin/idea.sh  ~/.local/share/intellij/bin/intellij.sh
 echo 'export PATH=$PATH:/home/spedison/.local/share/intellij/bin' >> ~/.bashrc
-rm ~/ideaIU-2024.1.4.tar
+rm ~/$FILE_P.tar
 
 
 #PyCharm
