@@ -59,6 +59,10 @@ sudo rpm-ostree -y install texmaker texworks latexmk
 # Outros utilitários aproximados dos que você mencionou
 sudo rpm-ostree -y install tgif tpp
 
+# Utilitário que flexibiliza o uso de ferramentas como o PodMan 
+# mas ainda mais simples do que usar somente linha de comando.
+sudo rpm-ostree -y install distrobox
+
 
 
 
