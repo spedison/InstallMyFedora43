@@ -15,7 +15,9 @@ vim-latex vim-X11 vim-minimal
 # Aplicativo para listar mover janelas. 
 # https://linuxvox.com/blog/what-are-the-alternatives-to-wmctrl/#comparison-table-choosing-the-right-tool
 # 
-sudo rpm-ostree -y install  meld wtype swaymsg wlrctl
+
+# Aplicativo de manutenção de Rede
+sudo rpm-ostree -y install  meld wtype swaymsg wlrctl net-tools
 
 
 # ImageMagick : Apps para manipulação de imagens 
