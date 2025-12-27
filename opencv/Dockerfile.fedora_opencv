@@ -1,0 +1,23 @@
+FROM docker.io/library/fedora:43
+
+LABEL maintainer="Edison Araujo <spedison@gmail.com>"
+LABEL description="Ambiente de desenvolvimento OpenCV Usando Fedora"
+LABEL version="1.0"
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Instando as libs do OpenCV
+RUN  dnf update && \
+     dnf search opencv 2>/dev/null | grep -E "(^ opencv-|)" | cut -f 1 -d "." | sort | uniq | sudo xargs dnf -y  install && \
+     dnf search gstrea 2>/dev/null | grep -E "(^ opencv-|^ gstre)" | cut -f 1 -d "." | sort | uniq | xargs sudo dnf -y install && \
+     dnf-y install clang gcc g++ make cmake git wget curl vim \
+                   libcamera-v4l2 libv4l-devel libva-v4l2-request \
+                   pipewire-v4l2 v4l-utils-devel-tools \
+                   gtk-v4l libv4l v4l-utils v4l2ucp \
+                   libavcodec-free libavdevice-free \
+                   ffmpeg-free-devel ffmpegthumbnailer-devel \
+                   ffmpegthumbnailer-libs vlc-plugin-ffmpeg \
+                   ffmpeg-free gstreamer1-plugin-libav \
+                   libavutil-free libavutil-free-devel
+
+                    
