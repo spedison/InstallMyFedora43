@@ -53,7 +53,6 @@ flatpak -y install flathub org.keepassxc.KeePassXC
 
 # 2 Leitores de e-books
 flatpak -y install flathub com.github.johnfactotum.Foliate
-
 flatpak -y install flathub org.kde.arianna
 
 #Editor de imagens bem razoável para um amador na área de edição
@@ -62,3 +61,6 @@ flatpak -y install flathub org.kde.krita
 #Para trabalhar com mesa digitalizadora e/ou mouse para 
 # Para apresentações / aulas
 flatpak -y install flathub com.github.xournalpp.xournalpp
+
+#Editor para ajustar páginas dos pdfs
+flatpak -y install fedora com.github.jeromerobert.pdfarranger
