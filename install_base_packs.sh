@@ -1,105 +1,126 @@
-#!\bin\bash
+#!/bin/bash
 
-# Vim e alguns plugins e sua versão Gráfica GTK
-# Ferramentas de terminal HTOP e mc
-# Ferramentas para trabalhar com Android.
-sudo rpm-ostree -y install  \
-                   vim-gtk-syntax vim-gv  \
-                   vim-enhanced awesome-vim-colorschemes \
-                   perl-Text-VimColor vim-go \
-                   vim-latex vim-X11 \
-                   htop mc android-tools
+# Função para verificar e instalar pacotes rpm-ostree somente se não estiverem instalados
+install_if_not_exists() {
+    local packages=("$@")
+    local to_install=()
 
+    for pkg in "${packages[@]}"; do
+        if rpm -q "$pkg" &>/dev/null; then
+            echo "[✔] Pacote '$pkg' já está instalado. Ignorando..."
+        else
+            echo "[➕] Pacote '$pkg' será instalado."
+            to_install+=("$pkg")
+        fi
+    done
 
+    if [ "${#to_install[@]}" -gt 0 ]; then
+        echo "📦 Instalando pacotes: ${to_install[*]}"
+        sudo rpm-ostree install -y "${to_install[@]}"
+    else
+        echo "✅ Nenhum novo pacote a instalar."
+    fi
+}
 
-# App para comparação de diretórios e arquivos 
-# em uma interface gráfica amigável.
+# ------------------------------------------
+# Vim e plugins, versão gráfica GTK
+# Terminal tools: htop, mc
+# Ferramentas Android
+# ------------------------------------------
+vim_tools=(
+    vim-gtk-syntax vim-gv vim-enhanced awesome-vim-colorschemes
+    perl-Text-VimColor vim-go vim-latex vim-X11
+    htop mc android-tools
+)
+install_if_not_exists "${vim_tools[@]}"
 
-# https://github.com/jordansissel/xdotool/
-# Automação de Janela, Telcado e Mouse.
+# ------------------------------------------
+# Apps gráficos para comparação e automação
+# ------------------------------------------
+#gui_tools=(
+#    meld wtype swaymsg wlrctl
+#)
+#install_if_not_exists "${gui_tools[@]}"
 
-# Aplicativo para listar mover janelas. 
-# https://linuxvox.com/blog/what-are-the-alternatives-to-wmctrl/#comparison-table-choosing-the-right-tool
-# 
+# ------------------------------------------
+# Manipulação de imagens via CLI
+# ------------------------------------------
+imagemagick_tools=(
+    ImageMagick ImageMagick-c++ ImageMagick-c++-devel vips-magick
+    ImageMagick-doc ImageMagick-devel
+)
+install_if_not_exists "${imagemagick_tools[@]}"
 
-# Aplicativo de manutenção de Rede
-sudo rpm-ostree -y install  meld wtype swaymsg wlrctl
+# ------------------------------------------
+# Conversor WebP
+# ------------------------------------------
+webp_tools=(
+    libwebp libwebp-devel libwebp-java libwebp-tools
+)
+install_if_not_exists "${webp_tools[@]}"
 
-# ImageMagick : Apps para manipulação de imagens 
-# usando linha de comando
-# https://imagemagick.org
-sudo rpm-ostree -y install ImageMagick ImageMagick-c++ \
-ImageMagick-c++-devel vips-magick ImageMagick-doc \
-ImageMagick-devel
+# ------------------------------------------
+# Monitoramento de sites e ferramentas de rede/SSH
+# ------------------------------------------
+network_tools=(
+    urlwatch net-tools openssh-client openssh-server nmap nmap-ncat
+)
+install_if_not_exists "${network_tools[@]}"
 
-# App que converte webp em jpg
-# Exemplo : 
-sudo rpm-ostree -y install libwebp libwebp-devel libwebp-java libwebp-tools 
+# ------------------------------------------
+# Graphviz, suporte a mouse Logitech, LaTeX
+# ------------------------------------------
+latex_and_graphics=(
+    graphviz ghc-graphviz solaar logiops texlive-scheme-full
+    texmaker texworks latexmk tgif 
 
-# Este programa monitora mudança de sites e te envia o resultado por e-mail
-# Via linha de comando ou Script.
-# https://packages.fedoraproject.org/pkgs/urlwatch/urlwatch/
+)
+install_if_not_exists "${latex_and_graphics[@]}"
 
-# ferramentas básicas de rede 
+# ------------------------------------------
+# Distrobox e ferramentas para C++/Rust (desenv.)
+# ------------------------------------------
+dev_tools=(
+    distrobox checkmake cmake-fedora cmrc-devel ignition-cmake-devel
+    c4project llvm-cmake-utils cmake-data cmake-doc cmake-filesystem
+    cmake-gui cmake-rpm-macros cmake-srpm-macros extra-cmake-modules
+    gcc-c++ gcc-gdb-plugin gcc-plugin-annobin gcc-plugin-devel libgccjit
+    libgccjit-devel libgomp-offload-amdgcn libgomp-offload-nvptx
+    libquadmath libquadmath-devel rust rust-analyzer gdb
 
-# Ferramentas de SSh
+    # Rust crates/tools
+    rust-actix-web+__compress-devel rust-actix-web+__tls-devel
+    rust-actix-web+actix-tls-devel rust-actix-web+compat-devel
+    rust-actix-web+compress-gzip-devel rust-actix-web+cookies-devel
+    rust-actix-web+default-devel rust-actix-web+http2-devel
+    rust-actix-web+macros-devel rust-argmax-devel rust-argon2-devel
+    aw-server-rust bindgen-cli cargo cargo-insta cargo-rpm-macros
+    cbindgen clippy rust-addr2line-devel rust-addr2line+std-devel
+    rust-addr2line+smallvec-devel
+)
+install_if_not_exists "${dev_tools[@]}"
 
-# Mapear a rede com serviços e IPs
-# Exemplo : sudo nmap -sS 192.xx.xx.0/24
-sudo rpm-ostree -y install urlwatch net-tools \
-                   openssh-client openssh-server \
-                   nmap nmap-ncat 
+# ------------------------------------------
+# Silver Searcher, gráficos via linha de comando
+# Manipula teclado e mouse via linha de comando
+# ------------------------------------------
+cli_utils=(
+    the_silver_searcher gnuplot gnuplot-common gnuplot-minimal
+    gnuplot-wx gnuplot-doc gnuplot-latex wtype ydotool
+)
+install_if_not_exists "${cli_utils[@]}"
 
-# Para converte grafos em imagens (fica muito bom!).
-# https://graphviz.org/download/
-
-# Suporte para o Mouse Logtech
-
-# Pacotes principais do TeX Live
-
-# ferramentas para trabalhar com Latex e manipulação de imagens
-sudo rpm-ostree -y install \
-               graphviz ghc-graphviz \
-               solaar logiops \
-               texlive-scheme-full \
-               texmaker texworks latexmk \
-               tgif tpp
-
-# Utilitário que flexibiliza o uso de ferramentas como o PodMan 
-# mas ainda mais simples do que usar somente linha de comando (distrobox).
-
-# Pacotes básicos para desenvolvimento C++ e Rust
-sudo rpm-ostree -y install distrobox \
-                   checkmake cmake-fedora cmrc-devel ignition-cmake-devel c4project llvm-cmake-utils \
-                   cmake-data cmake-doc cmake-filesystem cmake-gui cmake-rpm-macros \
-                   cmake-srpm-macros llvm-cmake-utils c4project cmake-fedora  cmrc-devel \
-                   extra-cmake-modules cmrc-devel gcc-c++ gcc-gdb-plugin gcc-plugin-annobin \
-                   gcc-plugin-devel libgccjit         libgccjit-devel                libgomp-offload-amdgcn \
-                   libgomp-offload-nvptx libquadmath libquadmath-devel               rust rust-actix-web+__compress-devel \
-                   rust-actix-web+__tls-devel         rust-actix-web+actix-tls-devel rust-actix-web+compat-devel \
-                   rust-actix-web+compress-gzip-devel rust-actix-web+cookies-devel   rust-actix-web+default-devel \
-                   rust-actix-web+http2-devel         rust-actix-web+macros-devel    rust-analyzer rust-argmax-devel rust-argon2-devel \
-                   aw-server-rust bindgen-cli  cargo  cargo-insta cargo-rpm-macros cbindgen clippy rust-addr2line-devel \
-                   rust-addr2line+std-devel           rust-addr2line+smallvec-devel
-                   
-# Silver Searcher
-# Fazendo gráficos na linha de comando (gnuplot)                   
-sudo rpm-ostree -y install \
-                   the_silver_searcher \
-                   gnuplot gnuplot-common gnuplot-minimal gnuplot-wx gnuplot-doc gnuplot-latex
-
-# Base packages for GoLang
-sudo rpm-ostree -y install \
-                  golang golang-bin golang-docs golang-github-alecthomas-kong-devel \
-                  golang-shared golang-misc golang-src golang-tests golangci-lint \
-                  compat-golang-github-codegangsta-cli-devel compat-golang-github-coreos-clair-devel \
-                  compat-golang-github-coreos-oidc-3-devel compat-golang-github-docopt-devel \
-                  compat-golang-github-facebook-ent-devel godoctor glide
-
-                   
-                   
-                   
-
-
-
-
+# ------------------------------------------
+# Base GoLang
+# ------------------------------------------
+golang_packages=(
+    golang golang-bin golang-docs golang-github-alecthomas-kong-devel
+    golang-shared golang-misc golang-src golang-tests golangci-lint
+    compat-golang-github-codegangsta-cli-devel
+    compat-golang-github-coreos-clair-devel
+    compat-golang-github-coreos-oidc-3-devel
+    compat-golang-github-docopt-devel
+    compat-golang-github-facebook-ent-devel
+    godoctor glide
+)
+install_if_not_exists "${golang_packages[@]}"
