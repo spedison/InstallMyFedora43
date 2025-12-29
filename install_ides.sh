@@ -1,10 +1,7 @@
-# # Aplicativos mais básicos
-# sudo apt install -y mc git curl wget htop btop vim terminator gnuplot octave net-tools 
-# sudo apt install -y binutils make cmake gcc g++ g++-12 g++-11 libstdc++5
-# sudo apt install -y zip unzip gzip libreoffice tree silversearcher-ag
-
+#!/bin/bash
 
 # IDEs da JetBrains
+
 # CLion
 cd ~
 FILE_P=CLion-2025.3.1
@@ -41,7 +38,6 @@ ln -s $HOME/.local/share/intellij/bin/idea  $HOME/.local/share/intellij/bin/inte
 echo 'export PATH=$PATH:$HOME/.local/share/intellij/bin' >> $HOME/.bashrc
 rm ~/$FILE_P.tar
 
-
 #PyCharm
 cd ~
 FILE_P=pycharm-2025.3.1
@@ -63,27 +59,6 @@ tar -xvf ~/$FILE_P.tar
 ln -s ~/.local/share/$FILE_P ~/.local/share/rustrover
 echo 'export PATH=$PATH:/home/spedison/.local/share/rustrover/bin' >> ~/.bashrc
 rm ~/$FILE_P.tar
-
-
-#Anaconda
-cd ~
-export INSTALLER_VERSION="2024.06-1"
-# Pacotes necessários
-# Original 
-# sudo apt install -y libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6
-# Ajustado
-sudo apt install -y libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 liboss4-salsa-asound2 libxi6 libxtst
-
-#        https://repo.anaconda.com/archive/Anaconda3-2024.06-1-Linux-x86_64.sh
-curl -O https://repo.anaconda.com/archive/Anaconda3-$INSTALLER_VERSION-Linux-x86_64.sh
-
-# Não tem uma instalação decente.
-# Deve aceiter os termos e pedir para alterar o .bashrc
-bash "$HOME/Anaconda3-$INSTALLER_VERSION-Linux-x86_64.sh"
-
-# Depois de instalar acertar a versão da glibc
-conda install -c conda-forge gcc=12.1.0
-
 
 
 
