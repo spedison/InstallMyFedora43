@@ -76,6 +76,14 @@ sudo rpm-ostree -y install distrobox \
                    aw-server-rust bindgen-cli  cargo  cargo-insta cargo-rpm-macros cbindgen clippy rust-addr2line-devel \
                    rust-addr2line+std-devel           rust-addr2line+smallvec-devel
                    
+# Silver Searcher
+# Fazendo gráficos na linha de comando (gnuplot)                   
+sudo rpm-ostree -y install \
+                   the_silver_searcher \
+                   gnuplot gnuplot-common gnuplot-minimal gnuplot-wx gnuplot-doc gnuplot-latex
+                   
+                   
+                   
 
 
 
