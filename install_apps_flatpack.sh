@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Adicionando e mostrando os repositórios" 
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
@@ -64,3 +66,6 @@ flatpak -y install flathub com.github.xournalpp.xournalpp
 
 #Editor para ajustar páginas dos pdfs
 flatpak -y install fedora com.github.jeromerobert.pdfarranger
+
+#Comparador de diretórios para fazer merge de fontes.
+flatpak -y install fedora org.gnome.Meld
