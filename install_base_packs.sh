@@ -63,7 +63,7 @@ install_if_not_exists "${webp_tools[@]}"
 # Monitoramento de sites e ferramentas de rede/SSH
 # ------------------------------------------
 network_tools=(
-    urlwatch net-tools openssh-client openssh-server nmap nmap-ncat
+    urlwatch net-tools openssh-clients openssh-server nmap nmap-ncat
 )
 install_if_not_exists "${network_tools[@]}"
 
