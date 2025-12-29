@@ -22,7 +22,7 @@ sudo rpm-ostree -y install \
   libvirt-client \
   virt-v2v \
   virt-v2v-bash-completion \
-  virtiofsd \
+  virtiofsd 
   
 
 #sudo usermod -aG libvirt $USER
