@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Lista global de pacotes a instalar
+declare -a all_packages=()
+
 # Função para verificar e instalar pacotes rpm-ostree somente se não estiverem instalados
 install_if_not_exists() {
     local packages=("$@")
@@ -10,13 +13,15 @@ install_if_not_exists() {
             echo "[✔] Pacote '$pkg' já está instalado. Ignorando..."
         else
             echo "[➕] Pacote '$pkg' será instalado."
-            to_install+=("$pkg")
+            all_packages+=("$pkg")
         fi
     done
+}
 
-    if [ "${#to_install[@]}" -gt 0 ]; then
-        echo "📦 Instalando pacotes: ${to_install[*]}"
-        sudo rpm-ostree install -y "${to_install[@]}"
+install_all_processing() {
+    if [ "${#all_packages[@]}" -gt 0 ]; then
+        echo "📦 Instalando pacotes: ${all_packages[*]}"
+        sudo rpm-ostree install -y "${all_packages[@]}"
     else
         echo "✅ Nenhum novo pacote a instalar."
     fi
@@ -28,7 +33,8 @@ install_if_not_exists() {
 # Ferramentas Android
 # ------------------------------------------
 vim_tools=(
-    vim-gtk-syntax vim-gv vim-enhanced awesome-vim-colorschemes
+    vim-gtk-syntax vim-gv
+    vim-enhanced awesome-vim-colorschemes
     perl-Text-VimColor vim-go vim-latex vim-X11
     htop mc android-tools
 )
@@ -46,7 +52,8 @@ install_if_not_exists "${vim_tools[@]}"
 # Manipulação de imagens via CLI
 # ------------------------------------------
 imagemagick_tools=(
-    ImageMagick ImageMagick-c++ ImageMagick-c++-devel vips-magick
+    ImageMagick ImageMagick-c++
+    ImageMagick-c++-devel vips-magick
     ImageMagick-doc ImageMagick-devel
 )
 install_if_not_exists "${imagemagick_tools[@]}"
@@ -72,8 +79,7 @@ install_if_not_exists "${network_tools[@]}"
 # ------------------------------------------
 latex_and_graphics=(
     graphviz ghc-graphviz solaar logiops texlive-scheme-full
-    texmaker texworks latexmk tgif 
-
+    texmaker texworks latexmk tgif
 )
 install_if_not_exists "${latex_and_graphics[@]}"
 
@@ -121,6 +127,9 @@ golang_packages=(
     compat-golang-github-coreos-oidc-3-devel
     compat-golang-github-docopt-devel
     compat-golang-github-facebook-ent-devel
-    godoctor glide
+    glide
 )
+
 install_if_not_exists "${golang_packages[@]}"
+
+install_all_processing ""
