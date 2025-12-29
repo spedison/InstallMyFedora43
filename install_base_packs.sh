@@ -2,12 +2,14 @@
 
 # Vim e alguns plugins e sua versão Gráfica GTK
 # Ferramentas de terminal HTOP e mc
+# Ferramentas para trabalhar com Android.
 sudo rpm-ostree -y install  \
-                   vim-gtk-syntax vim-gv vim-default-editor \
+                   vim-gtk-syntax vim-gv  \
                    vim-enhanced awesome-vim-colorschemes \
                    perl-Text-VimColor vim-go \
-                   vim-latex vim-X11 vim-minimal \
-                   htop mc
+                   vim-latex vim-X11 \
+                   htop mc android-tools
+
 
 
 # App para comparação de diretórios e arquivos 
@@ -21,7 +23,7 @@ sudo rpm-ostree -y install  \
 # 
 
 # Aplicativo de manutenção de Rede
-sudo rpm-ostree -y install  meld wtype swaymsg wlrctl net-tools
+sudo rpm-ostree -y install  meld wtype swaymsg wlrctl
 
 # ImageMagick : Apps para manipulação de imagens 
 # usando linha de comando
@@ -85,6 +87,15 @@ sudo rpm-ostree -y install distrobox \
 sudo rpm-ostree -y install \
                    the_silver_searcher \
                    gnuplot gnuplot-common gnuplot-minimal gnuplot-wx gnuplot-doc gnuplot-latex
+
+# Base packages for GoLang
+sudo rpm-ostree -y install \
+                  golang golang-bin golang-docs golang-github-alecthomas-kong-devel \
+                  golang-shared golang-misc golang-src golang-tests golangci-lint \
+                  compat-golang-github-codegangsta-cli-devel compat-golang-github-coreos-clair-devel \
+                  compat-golang-github-coreos-oidc-3-devel compat-golang-github-docopt-devel \
+                  compat-golang-github-facebook-ent-devel godoctor glide
+
                    
                    
                    
