@@ -29,14 +29,16 @@ rm ~/$FILE_P.tar
 
 #IntelliJ
 cd ~
-FILE_P=idea-2025.3.1
+export FILE_P=idea-2025.3.1
 wget https://download-cdn.jetbrains.com/idea/$FILE_P.tar.gz
 gunzip $FILE_P.tar.gz
 cd ~/.local/share
 tar -xvf ~/$FILE_P.tar
-ln -s ~/.local/share/$FILE_P ~/.local/share/intellij
-ln -s ~/.local/share/intellij/bin/idea.sh  ~/.local/share/intellij/bin/intellij.sh
-echo 'export PATH=$PATH:/home/spedison/.local/share/intellij/bin' >> ~/.bashrc
+# ele me fez o favor de quebrar o Script alterando o nome do diretorio interno diferente do arquivo compactado
+export FILE_PN=$(ls -1 | grep -i  "idea-iu")
+ln -s $HOME/.local/share/idea-IU-253.29346.138 $HOME/.local/share/intellij
+ln -s $HOME/.local/share/intellij/bin/idea  $HOME/.local/share/intellij/bin/intellij
+echo 'export PATH=$PATH:$HOME/.local/share/intellij/bin' >> $HOME/.bashrc
 rm ~/$FILE_P.tar
 
 
