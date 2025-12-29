@@ -1,10 +1,14 @@
 #!\bin\bash
 
 # Vim e alguns plugins e sua versão Gráfica GTK
+# Ferramentas de terminal HTOP e mc
 sudo rpm-ostree -y install  \
-vim-gtk-syntax vim-gv vim-default-editor vim-enhanced \
-awesome-vim-colorschemes perl-Text-VimColor vim-go \
-vim-latex vim-X11 vim-minimal
+                   vim-gtk-syntax vim-gv vim-default-editor \
+                   vim-enhanced awesome-vim-colorschemes \
+                   perl-Text-VimColor vim-go \
+                   vim-latex vim-X11 vim-minimal \
+                   htop mc
+
 
 # App para comparação de diretórios e arquivos 
 # em uma interface gráfica amigável.
