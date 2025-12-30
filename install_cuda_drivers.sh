@@ -26,8 +26,13 @@ install_all_processing() {
 }
 
 cuda_packs=(akmod-nvidia
+  xorg-x11-drv-nvidia-cuda-libs	
   xorg-x11-drv-nvidia-cuda
-  cuda-toolkit)
+  nvidia-xconfig
+  xorg-x11-drv-nvidia-devel
+  xorg-x11-drv-nvidia-libs
+  xorg-x11-drv-nvidia-xorg-libs
+  criu-cuda-plugin)
 
 install_if_not_exists "${cuda_packs[@]}"
 install_all_processing ""
