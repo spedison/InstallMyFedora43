@@ -41,12 +41,25 @@ passar os scripts do Ubuntu para ele.
     - [ ] Compatibilizar as teclas de Atalho com as anteriores
     - [ ] Montar um visual agradável com o Plugins do Gnome e exportar a instalação e configuração
     - [X] Ambiente para programação usando o OpenCV usando Ubuntu e Fedora. 
-
+    - [X] Trocar o Docker pelo Podman
+  
 ## Referências:
 1) https://fedoraproject.org
-2) https://opencv.org/releases/
+2) https://dnf.readthedocs.io/en/latest/conf_ref.html#countme-label
+3) https://docs.fedoraproject.org/pt_BR/quick-docs/adding-or-removing-software-repositories-in-fedora/
+4) https://docs.fedoraproject.org/en-US/fedora-silverblue/reading-and-resources/
+5) https://docs.fedoraproject.org/en-US/fedora-silverblue/_attachments/team-silverblue-origins.pdf
+6) https://docs.fedoraproject.org/en-US/fedora-silverblue/_attachments/silverblue-cheatsheet.pdf
+7) https://docs.fedoraproject.org/en-US/fedora-silverblue/_attachments/flatpak-print-cheatsheet.pdf
+8) https://opencv.org/releases/
+9) https://docs.podman.io/en/latest/markdown/podman.1.html
+10) https://libpod.readthedocs.io/en/latest/Tutorials.html
+11) https://man.uex.se/1/podman-remote
+12) https://github.com/containers/podman/blob/main/docs/tutorials/remote_client.md?plain=1
+13) https://willhbr.net/archive/
+14) https://www.edivaldobrito.com.br/gerencie-suas-extensoes-do-gnome-via-linha-de-comando-de-forma-simples/
+15) https://extensions.gnome.org/extension/7065/tiling-shell/
 
 ## Datas:
-   * 31/12/2025 - Versão quase pronta para passar para o meu desktop de produção (por enquanto, somente na Vm e no Note)
-
-* 20/11/25 - Criação do repositório
+  * 31/12/2025 - Versão quase pronta para passar para o meu desktop de produção (por enquanto, somente na Vm e no Note)
+  * 20/11/25 - Criação do repositório
