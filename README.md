@@ -45,20 +45,21 @@ passar os scripts do Ubuntu para ele.
   
 ## Referências:
 1) https://fedoraproject.org
-2) https://dnf.readthedocs.io/en/latest/conf_ref.html#countme-label
-3) https://docs.fedoraproject.org/pt_BR/quick-docs/adding-or-removing-software-repositories-in-fedora/
-4) https://docs.fedoraproject.org/en-US/fedora-silverblue/reading-and-resources/
-5) https://docs.fedoraproject.org/en-US/fedora-silverblue/_attachments/team-silverblue-origins.pdf
-6) https://docs.fedoraproject.org/en-US/fedora-silverblue/_attachments/silverblue-cheatsheet.pdf
-7) https://docs.fedoraproject.org/en-US/fedora-silverblue/_attachments/flatpak-print-cheatsheet.pdf
-8) https://opencv.org/releases/
-9) https://docs.podman.io/en/latest/markdown/podman.1.html
-10) https://libpod.readthedocs.io/en/latest/Tutorials.html
-11) https://man.uex.se/1/podman-remote
-12) https://github.com/containers/podman/blob/main/docs/tutorials/remote_client.md?plain=1
-13) https://willhbr.net/archive/
-14) https://www.edivaldobrito.com.br/gerencie-suas-extensoes-do-gnome-via-linha-de-comando-de-forma-simples/
-15) https://extensions.gnome.org/extension/7065/tiling-shell/
+2) https://docs.fedoraproject.org/en-US/fedora/f40/system-administrators-guide/basic-system-configuration/Managing_Users_and_Groups/
+3) https://dnf.readthedocs.io/en/latest/conf_ref.html#countme-label
+4) https://docs.fedoraproject.org/pt_BR/quick-docs/adding-or-removing-software-repositories-in-fedora/
+5) https://docs.fedoraproject.org/en-US/fedora-silverblue/reading-and-resources/
+6) https://docs.fedoraproject.org/en-US/fedora-silverblue/_attachments/team-silverblue-origins.pdf
+7) https://docs.fedoraproject.org/en-US/fedora-silverblue/_attachments/silverblue-cheatsheet.pdf
+8) https://docs.fedoraproject.org/en-US/fedora-silverblue/_attachments/flatpak-print-cheatsheet.pdf
+9) https://opencv.org/releases/
+10) https://docs.podman.io/en/latest/markdown/podman.1.html
+11) https://libpod.readthedocs.io/en/latest/Tutorials.html
+12) https://man.uex.se/1/podman-remote
+13) https://github.com/containers/podman/blob/main/docs/tutorials/remote_client.md?plain=1
+14) https://willhbr.net/archive/
+15) https://www.edivaldobrito.com.br/gerencie-suas-extensoes-do-gnome-via-linha-de-comando-de-forma-simples/
+16) https://extensions.gnome.org/extension/7065/tiling-shell/
 
 ## Datas:
   * 31/12/2025 - Versão quase pronta para passar para o meu desktop de produção (por enquanto, somente na Vm e no Note)
