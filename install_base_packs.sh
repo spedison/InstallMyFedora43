@@ -260,6 +260,9 @@ gnome-builder
 )
 
 install_if_not_exists "${themes[@]}"
+## Ref dos Plugins: https://extensions.gnome.org/extension/3193/blur-my-shell/
+##                  
+
 
 # O que é necessário para deixar o CUDA e a placa de video funcionando
 # Para isso funcionar chame script com o parâmetro nvidia
