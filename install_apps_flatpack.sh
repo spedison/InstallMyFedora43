@@ -69,3 +69,6 @@ flatpak -y install fedora com.github.jeromerobert.pdfarranger
 
 #Comparador de diretórios para fazer merge de fontes.
 flatpak -y install fedora org.gnome.Meld
+
+## TODO: Colocar o distro Chef
+## https://sempreupdate.com.br/instale-o-distroshelf-no-ubuntu-fedora-debian-e-outras-distribuicoes-linux-com-flatpak/

@@ -263,4 +263,39 @@ gnome-builder
 )
 
 install_if_not_exists "${themes[@]}"
+## Ref dos Plugins: https://extensions.gnome.org/extension/3193/blur-my-shell/
+##                  https://extensions.gnome.org/extension/7065/tiling-shell/
+
+
+# O que é necessário para deixar o CUDA e a placa de video funcionando
+# Para isso funcionar chame script com o parâmetro nvidia
+video=(
+    akmod-nvidia 
+    kmod-nvidia
+    xorg-x11-drv-nvidia-cuda 
+    xorg-x11-drv-nvidia-devel 
+    xorg-x11-drv-nvidia-libs
+    xorg-x11-drv-nvidia
+)
+
+if [[ $1 -eq "nvidia" ]]; then
+  install_if_not_exists "${video[@]}"
+fi
+
 install_all_processing ""
+
+if [[ $1 -eq "nvidia" ]]; then
+####################################################################################
+### TODO: Verificar se o Kernel já recebe esses parâmetros usando por exemplo :::
+### $ rpm-ostree kargs
+### ostree-boot-kargs-v0
+### --append=rd.driver.blacklist=nouveau,nova-core
+### --append=modprobe.blacklist=nouveau,nova-core
+### --append=nvidia-drm.modeset=1
+### --append=initcall_blacklist=simpledrm_platform_driver_init
+###      ------- Para que não seja necessário rodar novamente.
+###      ------- Para memover algum parâmetro ::: Ex.: sudo rpm-ostree kargs --delete=initcall_blacklist=simpledrm_platform_driver_init
+###################################################################################
+  rpm-ostree kargs --append=rd.driver.blacklist=nouveau,nova-core --append=modprobe.blacklist=nouveau,nova-core --append=nvidia-drm.modeset=1 --append=initcall_blacklist=simpledrm_platform_driver_init
+fi
+## Veja ref em: https://docs.fedoraproject.org/pt/fedora-silverblue/troubleshooting/#_using_nvidia_drivers
