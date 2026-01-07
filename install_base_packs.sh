@@ -245,8 +245,9 @@ python3-pydata-sphinx-theme
 python3-sphinx-book-theme
 sweet-gtk-theme
 gnome-tweaks
-gnome-shell-extension-blur-my-shell
 gnome-pomodoro
+gnome-extensions-app
+gnome-shell-extension-blur-my-shell
 gnome-shell-extension-pop-shell
 gnome-shell-extension-pop-shell-shortcut-overrides
 gnome-shell-extension-netspeed
@@ -254,6 +255,8 @@ gnome-shell-extension-gsconnect
 gnome-shell-extension-dash-to-panel
 gnome-shell-extension-vertical-workspaces
 gnome-shell-extension-forge
+gnome-shell-extension-appindicator 
+gnome-shell-extension-dash-to-dock
 gnome-commander
 gnome-builder-devel
 gnome-builder
