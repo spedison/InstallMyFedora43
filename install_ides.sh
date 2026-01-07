@@ -3,24 +3,26 @@
 # IDEs da JetBrains
 
 # CLion
-cd ~
+cd $HOME
 FILE_P=CLion-2025.3.1
+FILE_L=clion-2025.3.1
 wget https://download-cdn.jetbrains.com/cpp/$FILE_P.tar.gz
 gunzip $FILE_P.tar.gz
 cd ~/.local/share
 tar -xvf ~/$FILE_P.tar
-ln -s ~/.local/share/$FILE_P ~/.local/share/clion
+ln -s $HOME/.local/share/$FILE_L $HOME/.local/share/clion
 echo 'export PATH=$PATH:/home/spedison/.local/share/clion/bin' >> ~/.bashrc
-rm ~/$FILE_P.tar
+rm $HOME/$FILE_P.tar
 
 #GoLand
 cd ~
 FILE_P=goland-2025.3
+FILE_U=GoLand-2025.3
 wget https://download-cdn.jetbrains.com/go/$FILE_P.tar.gz
 gunzip $FILE_P.tar.gz
 cd ~/.local/share
 tar -xvf ~/$FILE_P.tar
-ln -s ~/.local/share/$FILE_P ~/.local/share/goland
+ln -s ~/.local/share/$FILE_U ~/.local/share/goland
 echo 'export PATH=$PATH:/home/spedison/.local/share/goland/bin' >> ~/.bashrc
 rm ~/$FILE_P.tar
 
